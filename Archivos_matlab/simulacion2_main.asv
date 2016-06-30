@@ -1,0 +1,78 @@
+clear all
+close all
+global tiempo PMnivelBajo PMnivelMedio PMnivelAlto nivelPM estadoPm T1 T6 T11 T12 T13 T15 parametroTemporizadorPm1 parametroTemporizadorPm2 parametroTemporizadorPm3 parametroTemporizadorPm4;%globales del controlador de premezcla
+%inicializacion
+%tiempos
+
+tiempo      =   0;
+tsimulacion     =   30;
+
+%localizacion de los sensores
+PMnivelBajo     =   1;
+PMnivelMedio    =   4;
+PMnivelAlto     =   6;
+%fin localizacion de los sensores
+%inicializacion de estados de controladores
+estadoPm=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];%controlador de premezcla%
+T1=0;T6=1;T11 = 0;T12=0;T13=1;T15=0;%transiciones de inicio y reinicio (coordinador/supervisor)%
+parametroTemporizadorPm1=10;parametroTemporizadorPm2=10;parametroTemporizadorPm3=5;parametroTemporizadorPm4=5;%parametros de los controladores%
+
+VPmAgT=0;
+BPmMoAgT=0;
+VIAg6=0;
+
+
+
+
+
+addpath('RealTime_Pacer');
+
+
+set_param('proceso_simulacion_1', 'SimulationCommand', 'start');
+set_param('proceso_simulacion_1', 'SimulationCommand', 'pause');
+%fin de la inicializacion
+
+while(tiempo<tsimulacion)
+
+    set_param('proceso_simulacion_1', 'SimulationCommand', 'continue');
+    pause(0.1);
+    set_param('proceso_simulacion_1', 'SimulationCommand', 'pause');
+    [tiempo nivelPM]=  lectura_sistema();%obtiene todos los valores del sistema
+ 
+
+    %escritura_salida();%escribe el  valor de los sensores sobre la labjack
+     %[VIPm1  VIPm2   VIPm4a  VIPm4b  VIPm6   VOPm1   VOPm2]=lectura_entrada();%lectura señal del plc
+   
+    [VIPm1 VIPm4a  VIPm4b  VIPm6   VOPm1   VOPm2]  =   controlPm();%logica que ejerceria el plc.
+   
+   escritura_sistema(VIPm1,VIPm4a ,VIPm4b  ,VIPm6  , VOPm1,   VOPm2,BPmMoAgT,VPmAgT,0,0,0,0,0,0,0,VIAg6,0,0,0,0,0,0);%ejecucion de la accion del plc sobre el sistema
+   estadoPm
+   
+   if(tiempo>=13)&&(tiempo<13.5)
+       T12=1; 
+       T13=1;
+   end
+   if(tiempo>=14)
+       T15=1;
+       
+    VPmAgT=1;
+    BPmMoAgT=1;
+    VIAg6=1;
+   end
+   figure(1)
+    hold on
+    plot(tiempo,nivelPM);
+    drawnow;
+    figure(2)
+    hold on
+    plot(tiempo,nivelPM);
+    drawnow;
+    
+    
+end
+
+
+
+
+ set_param('proceso_simulacion_1', 'SimulationCommand', 'stop');
+    

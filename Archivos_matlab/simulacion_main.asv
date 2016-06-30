@@ -1,0 +1,41 @@
+clear all
+close all
+global tiempo PMnivelBajo PMnivelMedio PMnivelAlto;
+%inicializacion
+%tiempos
+tiempo=0;
+tsimulacion     =   9.5;
+
+%localizacion de los sensores
+PMnivelBajo     =   1;
+PMnivelMedio    =   4;
+PMnivelAlto     =   6;
+%fin localizacion de los sensores
+
+
+
+set_param('proceso_simulacion_1', 'SimulationCommand', 'start');
+set_param('proceso_simulacion_1', 'SimulationCommand', 'pause');
+%fin de la inicializacion
+
+while(tiempo<tsimulacion)
+
+    set_param('proceso_simulacion_1', 'SimulationCommand', 'continue');
+    pause(0.1);
+    set_param('proceso_simulacion_1', 'SimulationCommand', 'pause');
+    [tiempo nivelPM]=  lectura_sistema();%obtiene todos los valores del sistema
+ 
+       %[SLPM0  SLPM1]   =   sensores_sistema(nivelPM);
+
+    %escritura_salida();%escribe el  valor de los sensores sobre la labjack
+     %[VIPm1  VIPm2   VIPm4a  VIPm4b  VIPm6   VOPm1   VOPm2]=lectura_entrada();%lectura señal del plc
+   
+    [VIPm1 VIPm4a  VIPm4b  VIPm6   VOPm1   VOPm2]  =   controlPm();%logica que ejerceria el plc.
+    escritura_sistema(VIPm1,VIPm4a ,VIPm4b  ,VIPm6  , VOPm1,   VOPm2 );%ejecucion de la accion del plc sobre el sistema
+    figure(1)
+    hold on
+    plot(tiempo,nivelPM);
+    drawnow;
+end
+ set_param('proceso_simulacion_1', 'SimulationCommand', 'stop');
+    

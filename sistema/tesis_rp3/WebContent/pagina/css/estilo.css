@@ -1,0 +1,155 @@
+body { 
+background-color:#bbbbbb;
+}
+#orden_1_por_enviar,#orden_2_por_enviar,#orden_3_por_enviar
+{
+	
+	height: 100px;
+	width: 250px;
+	float:left;
+	
+}
+
+
+
+
+#inicio
+{
+	border-style: solid;
+	
+	height:500px;
+	width: 800px;
+	
+}
+
+
+
+#progresos
+{
+	
+	clear:both;
+	border-style:solid;
+	height:200px;
+	width: 800px;
+	
+	
+}
+
+.contenedor
+{	border-style:solid;
+	
+	float:left;
+	height: 30px;
+	width: 200px;
+	background-color: #aaaaaa;
+	
+	
+}
+
+.barra
+{	color:red;
+	text-align:left;
+	width:0px;
+	height: 30px;
+	
+	background-color: #aaffaa;
+	
+}
+
+.cabeza td
+{	text-align:center;
+	
+	height: 30px;
+	width: 200px;
+	
+}
+#cabeza1
+{	text-align:left;
+	
+	height: 30px;
+	width: 10px;
+	
+}
+
+#fallas
+{
+	border-style: solid;
+	
+	height:90px;
+	width: 800px;
+	
+}
+
+#estatus
+{
+	border-style: solid;
+	text-align:center;
+	height:50px;
+	width: 80px;
+	position:relative;
+	float:left;
+	/*background-color: #0080ff;*/
+	background-color: #f10e13;
+	
+	border-top: 20px solid #400;
+ 	border-right: 20px solid #333;
+ 	border-bottom: 20px  solid #000;
+ 	border-left: 20px  solid #333;
+ 	
+}
+
+#solucionada
+{
+	border-style: solid;
+	text-align:center;
+	height:50px;
+	width: 80px;
+	
+	float:right;
+	clear:right;
+	/*background-color: #20dfd6;*/
+	background-color: #3a8553;
+	
+	border-top: 20px solid #1d4400;
+ 	border-right: 20px solid #333;
+ 	border-bottom: 20px  solid #000;
+ 	border-left: 20px  solid #333;
+ 	
+}
+
+
+
+#solucionada:HOVER
+{	height:60px;
+	width: 90px;
+	
+	/*background-color: #20dfd6;*/
+	background-color: #269954;
+	
+	border-top: 15px solid #333;
+ 	border-right: 15px solid #000;
+ 	border-bottom: 15px  solid #333;
+ 	border-left: 15px  solid #000;
+ 	
+}
+
+
+
+#conexion
+{
+	border-style: solid;
+	text-align:center;
+	height:50px;
+	width: 80px;
+	position:relative;
+	float:left;
+	clear:right;
+	/*background-color: #0080ff;*/
+	background-color: #f10e13;
+	
+	border-top: 20px solid #400;
+ 	border-right: 20px solid #333;
+ 	border-bottom: 20px  solid #000;
+ 	border-left: 20px  solid #333;
+ 	
+}

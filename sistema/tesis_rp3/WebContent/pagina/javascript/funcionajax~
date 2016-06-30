@@ -1,0 +1,37 @@
+$(document).ready(function () {
+            $("#btnCallWebService").click(function (event) {
+                var wsUrl = "http://myserver/anysite/_layouts/myfolder/webservice1.asmx?op=Hello";
+
+                var soapRequest =
+'<?xml version="1.0" encoding="utf-8"?> \
+<soap:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" \
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" \
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> \
+  <soap:Body> \
+    <Hello xmlns="http://tempuri.org/"> \
+      <name>' + $("#txtName").val() + '</name> \
+    </Hello> \
+  </soap:Body> \
+</soap:Envelope>';
+
+                $.ajax({
+                    type: "POST",
+                    url: wsUrl,
+                    contentType: "text/xml",
+                    dataType: "xml",
+                    data: soapRequest,
+                    success: processSuccess,
+                    error: processError
+                });
+
+            });
+        });
+
+        function processSuccess(data, status, req) {
+            if (status == "success")
+                $("#response").text($(req.responseXML).find("HelloResult").text());
+        }
+
+        function processError(data, status, req) {
+            alert(req.responseText + " " + status);
+        } 

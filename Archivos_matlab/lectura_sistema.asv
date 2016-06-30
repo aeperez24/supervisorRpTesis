@@ -1,0 +1,8 @@
+function salida=lectura_sistema()
+
+PM =get_param('proceso_simulacion_1/PM','RuntimeObject');
+time =get_param('proceso_simulacion_1/Clock','RuntimeObject');
+
+salida=[PM.OutputPort(1).Data time.OutputPort(1).Data]
+%(PM,time)
+end

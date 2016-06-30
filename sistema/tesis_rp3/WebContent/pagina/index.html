@@ -1,0 +1,159 @@
+<html>
+<head> <link rel="StyleSheet" href="css/estilo.css" type="text/css"> </head>
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/conversion.js"></script>
+<script type="text/javascript" src="javascript/testeandoajax.js"></script>
+
+<script type="text/javascript" src="javascript/jquerysoap.js"></script>
+
+<body>
+
+
+<div id="inicio">
+	
+	<form id="orden_1_por_enviar" action="#">
+
+	
+	numero de orden:<input class="text_norden" type="text" maxlength="1" size=1  disabled="disabled" value="1"/> 
+	
+	<br/>cantidad de lotes :<input class="text_nlotes" type="text" maxlength="1" size=1 /> 
+	
+	<br/>medio lote extra :<input class="check_extra"  type="checkbox"/>  
+	
+	<br/>Color de pintura: <select>
+
+  	
+	<option value="1">pintura blanca</option>
+  	<option value="2">pintura marron</option>
+  	
+	
+	</select>
+
+	<br/><button id="orden_1_enviar">Aceptar</button>
+	</form>
+
+
+	<form id="orden_2_por_enviar" action="#">
+
+	
+	numero de orden:<input class="text_norden" type="text" maxlength="1" size=1 disabled="disabled" value="2"/> 
+	
+	<br/>cantidad de lotes :<input class="text_nlotes" type="text" maxlength="1" size=1 /> 
+	
+	<br/>medio lote extra :<input class="check_extra" type="checkbox"/>  
+	
+	<br/>Color de pintura: <select>
+	
+	<option value="1">pintura blanca</option>
+  	<option value="2">pintura marron</option>
+  	
+	
+	</select>
+	<br/><button id="orden_2_enviar">Aceptar</button>
+	</form>
+
+	<form id="orden_3_por_enviar" action="#">
+
+		numero de orden:<input class="text_norden" type="text" maxlength="1" size=1 disabled="disabled" value="3"/> 
+	
+		<br/>cantidad de lotes :<input class="text_nlotes" type="text" maxlength="1" size=1 /> 
+	
+		<br/>medio lote extra :<input type="checkbox" class="check_extra"/>    
+	
+		<br/>Color de pintura: 
+		<select>
+
+			<option value="1">pintura blanca</option>
+  			<option value="2">pintura marron</option>
+  		
+		</select>
+	
+		<br/><button id="orden_3_enviar">Aceptar</button>
+		</form>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div id="progresos">
+<table class="cabeza"><tr><td id="cabeza1">numero</td><td>Premezcla</td><td>Transporte</td><td>Agitado</td></tr></table>
+<table>
+
+		<tr> <td>orden 1</td><td>
+
+		<div id="orden_1_progreso">
+
+			<div id="orden_a_contenedor_premezcla" class="contenedor">
+				<div id="barra_1_premezcla" class="barra"></div>		
+			</div>
+
+			<div id="orden_a_contenedor_transporte" class="contenedor">
+				<div id="barra_1_transporte" class="barra"></div>
+			</div>
+			<div id="orden_a_contenedor_agitado" class="contenedor">
+				<div id="barra_1_agitado" class="barra"></div>
+			</div>
+		
+
+			</div>
+			</td>
+
+	</tr>
+	<tr><td> orden 2:</td><td>
+	<div id="orden_2_progreso">
+
+		<div id="orden_a_contenedor_premezcla" class="contenedor">
+			<div id="barra_2_premezcla" class="barra"></div>		
+		</div>
+
+		<div id="orden_a_contenedor_transporte" class="contenedor">
+			<div id="barra_2_transporte" class="barra"></div>
+		</div>
+		<div id="orden_a_contenedor_agitado" class="contenedor">
+			<div id="barra_2_agitado" class="barra"></div>
+		</div>
+		
+
+	</div>
+	</td>
+	<tr> <td>orden :3</td><td>
+	<div id="orden_3_progreso">
+
+		<div id="orden_a_contenedor_premezcla" class="contenedor">
+			<div id="barra_3_premezcla" class="barra"></div>		
+		</div>
+
+		<div id="orden_a_contenedor_transporte" class="contenedor">
+			<div id="barra_3_transporte" class="barra"></div>
+		</div>
+		<div id="orden_a_contenedor_agitado" class="contenedor">
+			<div id="barra_3_agitado" class="barra"></div>
+		</div>
+		
+
+	</div>
+	</td>
+	</tr>
+		
+</table>
+</div>
+
+
+
+
+
+
+
+
+
+
+<body>
+</html>

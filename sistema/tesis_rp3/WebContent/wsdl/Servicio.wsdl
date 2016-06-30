@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://servicios" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://servicios" xmlns:intf="http://servicios" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://servicios" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="get_status_proceso">
+    <complexType/>
+   </element>
+   <element name="get_status_procesoResponse">
+    <complexType>
+     <sequence>
+      <element name="get_status_procesoReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtener_orden">
+    <complexType>
+     <sequence>
+      <element name="x" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="obtener_ordenResponse">
+    <complexType>
+     <sequence>
+      <element name="obtener_ordenReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="inicio">
+    <complexType/>
+   </element>
+   <element name="inicioResponse">
+    <complexType>
+     <sequence>
+      <element name="inicioReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="falla_sol">
+    <complexType/>
+   </element>
+   <element name="falla_solResponse">
+    <complexType/>
+   </element>
+   <element name="incluir_orden">
+    <complexType>
+     <sequence>
+      <element name="orden" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="incluir_ordenResponse">
+    <complexType/>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="falla_solRequest">
+
+      <wsdl:part element="impl:falla_sol" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="incluir_ordenResponse">
+
+      <wsdl:part element="impl:incluir_ordenResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="incluir_ordenRequest">
+
+      <wsdl:part element="impl:incluir_orden" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inicioRequest">
+
+      <wsdl:part element="impl:inicio" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obtener_ordenResponse">
+
+      <wsdl:part element="impl:obtener_ordenResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="inicioResponse">
+
+      <wsdl:part element="impl:inicioResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="get_status_procesoRequest">
+
+      <wsdl:part element="impl:get_status_proceso" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="get_status_procesoResponse">
+
+      <wsdl:part element="impl:get_status_procesoResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="falla_solResponse">
+
+      <wsdl:part element="impl:falla_solResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="obtener_ordenRequest">
+
+      <wsdl:part element="impl:obtener_orden" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Servicio">
+
+      <wsdl:operation name="get_status_proceso">
+
+         <wsdl:input message="impl:get_status_procesoRequest" name="get_status_procesoRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:get_status_procesoResponse" name="get_status_procesoResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtener_orden">
+
+         <wsdl:input message="impl:obtener_ordenRequest" name="obtener_ordenRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:obtener_ordenResponse" name="obtener_ordenResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="inicio">
+
+         <wsdl:input message="impl:inicioRequest" name="inicioRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:inicioResponse" name="inicioResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="falla_sol">
+
+         <wsdl:input message="impl:falla_solRequest" name="falla_solRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:falla_solResponse" name="falla_solResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="incluir_orden">
+
+         <wsdl:input message="impl:incluir_ordenRequest" name="incluir_ordenRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:incluir_ordenResponse" name="incluir_ordenResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServicioSoapBinding" type="impl:Servicio">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="get_status_proceso">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="get_status_procesoRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="get_status_procesoResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="obtener_orden">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="obtener_ordenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="obtener_ordenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="inicio">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="inicioRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="inicioResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="falla_sol">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="falla_solRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="falla_solResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="incluir_orden">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="incluir_ordenRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="incluir_ordenResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServicioService">
+
+      <wsdl:port binding="impl:ServicioSoapBinding" name="Servicio">
+
+         <wsdlsoap:address location="http://localhost:8080/tesis_rp3/services/Servicio"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

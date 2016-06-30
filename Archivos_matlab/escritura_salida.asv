@@ -1,0 +1,41 @@
+function error=escritura_salida(SLPM0,SLPM1)
+error=1;
+if ~SLPM0&&~SLPM1
+        [DAC0] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC, 0, 0, 0 );
+        Error_Message(Error);
+        
+        [DAC1] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC,1, 0, 0 );
+        Error_Message(Error);
+        
+        error=0;
+elseif SNPM0&&~SNPM1
+        
+    
+        [DAC0] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC, 0, 5, 0 );
+        Error_Message(Error);
+        
+        [DAC1] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC,1, 0, 0 );
+        Error_Message(Error);
+        error=0;
+    elseif ~SNPM0&&SNPM1
+        
+        [DAC0] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC, 0, 0, 0 );
+        Error_Message(Error);
+        
+        [DAC1] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC,1, 5, 0 );
+        Error_Message(Error);
+        error=0
+        elseif SNPM0&&SNPM1
+                        
+            
+        [DAC0] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC, 0, 5, 0 );
+        Error_Message(Error);
+        
+        [DAC1] = ljud_ePut ( ljHandle, LJ_ioPUT_DAC,1, 5, 0 );
+        Error_Message(Error);
+        error=0
+    
+                            end
+
+
+end

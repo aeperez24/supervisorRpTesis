@@ -1,0 +1,23 @@
+<html>
+<head> <link rel="StyleSheet" href="css/estilo.css" type="text/css"> </head>
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/testeando.js"></script>
+<script type="text/javascript" src="javascript/jquerysoap.js"></script>
+
+<body>
+<div id="menu1" class="floatiz">
+</div>
+<div id="cuerpo1">
+<form>
+<input type="text" rows="1" cols="1" id="numero1"></textarea>
+      +
+<input type="text" rows="1" cols="1"  id="numero2"></textarea>
+
+<button type="text" id="aceptar"> Aceptar</button>
+<form>
+<input type="text" rows="1" cols="1"  id="resultado"></textarea>
+
+
+</div>
+<body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from ServicioService WSDL service -->
+
+  <service name="Servicio" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://servicios"/>
+      <parameter name="wsdlServiceElement" value="ServicioService"/>
+      <parameter name="schemaQualified" value="http://servicios"/>
+      <parameter name="wsdlServicePort" value="Servicio"/>
+      <parameter name="className" value="servicios.Servicio"/>
+      <parameter name="wsdlPortType" value="Servicio"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://servicios" xmlns:retNS="http://servicios" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="get_status_proceso" qname="operNS:get_status_proceso" returnQName="retNS:get_status_procesoReturn" returnType="rtns:int" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://servicios" xmlns:retNS="http://servicios" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="obtener_orden" qname="operNS:obtener_orden" returnQName="retNS:obtener_ordenReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://servicios" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:x" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://servicios" xmlns:retNS="http://servicios" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="inicio" qname="operNS:inicio" returnQName="retNS:inicioReturn" returnType="rtns:int" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://servicios" name="falla_sol" qname="operNS:falla_sol" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://servicios" name="incluir_orden" qname="operNS:incluir_orden" soapAction="">
+        <parameter xmlns:pns="http://servicios" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:orden" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="falla_sol inicio obtener_orden incluir_orden get_status_proceso"/>
+
+  </service>
+</deployment>
